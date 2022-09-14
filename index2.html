@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel</title>
+    <link rel="stylesheet" href="css/styles2.css">
+</head>
+<body>
+    <h2>VideoClip</h2>
+    <div class="contenedor">
+        <div class="player">
+            <button class="button" id="backward" aria-label="Retroceder10Segundos" title="Retroceder 10 Segundos"></button>
+            <button class="button" id="play" aria-label="Reproducir" title="Reproducir"></button>
+            <button class="button" hidden id="pause" aria-label="Pausar" title="Pausar"></button>
+            <button class="button" id="forward" aria-label="Adelantar10Segundos" title="Adelantar 10 Segundos"></button> 
+            <video id=pruebaVideo src="videos/Peter Schilling - Major Tom (Lyrics) (sub Español).mp4"  controls muted width="900" height="500"></video>
+        </div>
+    </div>
+    
+    <script>
+        const $video= document.querySelector('#pruebaVideo')
+        const $play= document.querySelector('#play')
+        const $pause= document.querySelector('#pause')
+        const $backward= document.querySelector('#backward')
+        const $forward= document.querySelector('#forward')
+
+        $play.addEventListener('click', handlePlay)
+        function handlePlay() {
+            $video.play()
+            $play.hidden= true
+            $pause.hidden= false
+            
+        }
+
+        $pause.addEventListener('click', handlePause)
+        function handlePause() {
+            $video.pause()
+            $pause.hidden= true
+            $play.hidden= false
+            
+            
+        }
+
+        $backward.addEventListener('click', handleBackward)
+        function handleBackward() {
+            $video.backward()
+        }
+
+        $forward.addEventListener('click', handleForward)
+        function handleForward() {
+            $video.forward()
+        }
+    </script>
+</body>
+</html>
